@@ -9,21 +9,26 @@ public class Main {
         int empHrs = 0;
         int empWage;
 
-        int random = (int)(Math.random()*10)%3;
-        switch(random){
-            case IS_PRESENT:
-                empHrs = 8;
-                System.out.println("Employee is present full day.");
-                break;
-            case PART_TIME:
-                empHrs = 4;
-                System.out.println("Employee is half day present.");
-                break;
-            default:
-                System.out.println("Employee is absent.");
-                break;
+
+        for(int i = 1;i<=20;i++){
+            int random = (int)(Math.random()*10)%3;
+            switch(random){
+                case IS_PRESENT:
+                    empHrs = 8;
+                    System.out.println("Employee is present full day.");
+                    break;
+                case PART_TIME:
+                    empHrs = 4;
+                    System.out.println("Employee is half day present.");
+                    break;
+                default:
+                    System.out.println("Employee is absent.");
+                    break;
+            }
+            empWage = wagePerHr * empHrs;
+            System.out.println("Employee wage per day is : "+ empWage);
         }
-        empWage = wagePerHr * empHrs;
-        System.out.println("Employee wage per day is : "+ empWage);
+
+
     }
 }
