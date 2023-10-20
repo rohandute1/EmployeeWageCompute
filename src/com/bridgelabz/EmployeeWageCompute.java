@@ -1,9 +1,7 @@
 package com.bridgelabz;
 
-public class Main {
-    public static void main(String[] args)
-    {
-        System.out.println("Welcome to Employee Wage Computation!");
+public class EmployeeWageCompute {
+    public void calculateEmpWage(){
         final int IS_PRESENT = 1;
         final int PART_TIME= 2;
         int wagePerHr = 20;
@@ -42,7 +40,13 @@ public class Main {
         if (totalEmpHrs>100){
             totalHrs = totalEmpHrs-4;
         }
-            totalEmpWage = wagePerHr * totalHrs;
-            System.out.println("Total employee wage for "+(day-1)+" days and "+totalHrs+" Hrs is: "+totalEmpWage);
+        totalEmpWage = wagePerHr * totalHrs;
+        System.out.println("Total employee wage for "+(day-1)+" days and "+totalHrs+" Hrs is: "+totalEmpWage);
+    }
+    public static void main(String[] args)
+    {
+        System.out.println("Welcome to Employee Wage Computation!");
+        EmployeeWageCompute empWage = new EmployeeWageCompute();
+        empWage.calculateEmpWage();
     }
 }
