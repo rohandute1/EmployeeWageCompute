@@ -4,24 +4,26 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation!");
         final int IS_PRESENT = 1;
-        int wagePerHr = 20;
-        int fullDayHrs = 8;
         final int PART_TIME= 2;
-        int partTimeHrs = 4;
-        int partTimeEmpWage;
+        int wagePerHr = 20;
+        int empHrs = 0;
         int empWage;
+
         int random = (int)(Math.random()*10)%3;
-        System.out.println(random);
-        if (IS_PRESENT == random){
-            empWage = fullDayHrs*wagePerHr;
-            System.out.println("Employee is present and Employee Wage per day : "+ empWage);
+        switch(random){
+            case IS_PRESENT:
+                empHrs = 8;
+                System.out.println("Employee is present full day.");
+                break;
+            case PART_TIME:
+                empHrs = 4;
+                System.out.println("Employee is half day present.");
+                break;
+            default:
+                System.out.println("Employee is absent.");
+                break;
         }
-        else if(PART_TIME==random){
-            partTimeEmpWage = wagePerHr * partTimeHrs;
-            System.out.println("Employee is part time and Employee Wage per day : "+ partTimeEmpWage);
-        }
-        else {
-            System.out.println("Employee is absent.");
-        }
+        empWage = wagePerHr * empHrs;
+        System.out.println("Employee wage per day is : "+ empWage);
     }
 }
