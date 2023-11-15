@@ -1,52 +1,39 @@
 package com.bridgelabz;
 
 public class EmployeeWageCompute {
-    public void calculateEmpWage(){
-        final int IS_PRESENT = 1;
-        final int PART_TIME= 2;
-        int wagePerHr = 20;
-        int empHrs = 0;
-        int empWage;
-        int totalEmpWage;
-        int max_Working_Hrs = 100;
-        int max_Working_Days = 20;
+    public static final int IS_PRESENT = 1;
+    public static final int IS_PART_TIME= 2;
+    public static void calculateEmpWage(String company, int emoRatePerHour, int numOfWorkingDays, int  maxHoursPerMonth){
+        int empHrs;
+        int totalWorkingDays = 0;
         int totalEmpHrs = 0;
-        int day=1;
 
-        while(day<=max_Working_Days && totalEmpHrs < max_Working_Hrs)
+        while(totalEmpHrs <=maxHoursPerMonth && totalWorkingDays < numOfWorkingDays)
         {
-            int random = (int)(Math.random()*10)%3;
-            switch(random)
+            totalWorkingDays++;
+            int empCheck = (int)Math.floor(Math.random()*10)%3;
+            switch(empCheck)
             {
                 case IS_PRESENT:
                     empHrs = 8;
-                    System.out.println("Employee is present full day.");
                     break;
-                case PART_TIME:
+                case IS_PART_TIME:
                     empHrs = 4;
-                    System.out.println("Employee is half day present.");
                     break;
                 default:
-                    System.out.println("Employee is absent.");
+                    empHrs = 0;
                     break;
             }
-            empWage = wagePerHr * empHrs;
             totalEmpHrs += empHrs;
-            System.out.println("Employee wage per day is : "+ empWage);
-            day++;
         }
-        int totalHrs = totalEmpHrs;
-
-        if (totalEmpHrs>100){
-            totalHrs = totalEmpHrs-4;
-        }
-        totalEmpWage = wagePerHr * totalHrs;
-        System.out.println("Total employee wage for "+(day-1)+" days and "+totalHrs+" Hrs is: "+totalEmpWage);
+        int totalEmpWage = totalEmpHrs * emoRatePerHour;
+        System.out.println("Total employee wage for company: " + company + "is: " + totalEmpWage);
     }
     public static void main(String[] args)
     {
         System.out.println("Welcome to Employee Wage Computation!");
-        EmployeeWageCompute empWage = new EmployeeWageCompute();
-        empWage.calculateEmpWage();
+        calculateEmpWage("Bridgelabz", 22, 24, 100);
+        calculateEmpWage("Dmart", 25, 22, 80);
     }
 }
+
