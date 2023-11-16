@@ -16,7 +16,6 @@ public class EmployeeWageCompute implements EmpWageBuilder {
     public EmployeeWageCompute() {
         this.companyEmpWageList = new ArrayList<>();
     }
-
     @Override
     public void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
         CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
@@ -32,7 +31,7 @@ public class EmployeeWageCompute implements EmpWageBuilder {
 
             while (totalEmpHrs <= companyEmpWage.maxHoursPerMonth && totalWorkingDays < companyEmpWage.numOfWorkingDays) {
                 totalWorkingDays++;
-                int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+                int empCheck = (int)(Math.random() * 10) % 3;
                 switch (empCheck) {
                     case IS_PRESENT:
                         empHrs = 8;
@@ -51,12 +50,12 @@ public class EmployeeWageCompute implements EmpWageBuilder {
             System.out.println(companyEmpWage);
         }
     }
-
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation!");
         EmpWageBuilder empWageBuilder = new EmployeeWageCompute();
         empWageBuilder.addCompanyEmpWage("Bridgelabz", 25, 23, 120);
         empWageBuilder.addCompanyEmpWage("DMart", 20, 20, 105);
+        empWageBuilder.addCompanyEmpWage("TATA",26,21,192);
         empWageBuilder.calculateEmpWage();
     }
 }
